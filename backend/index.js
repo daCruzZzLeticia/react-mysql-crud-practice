@@ -12,6 +12,9 @@ const db = mysql.createConnection({
     database: process.env.DB_NAME,
 })
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 app.get('/', (req, res) => {
     res.json('Olá, esse é o back-end')
 })
@@ -21,6 +24,16 @@ app.get('/books', (req, res) => {
     db.query(q, (err, data) => {
         if (err) return res.json(err)
         return res.json(data)
+    })
+})
+
+app.post('/books', (req, res) => {
+    const q = 'INSERT INTO books (`title`, `description`, `cover`) VALUES (?)'
+    const values = [req.body.title, req.body.description, req.body.cover]
+
+    db.query(q, [values], (err, data) => {
+        if (err) return res.json(err)
+        return res.json('livro criado com sucesso!')
     })
 })
 
