@@ -39,6 +39,16 @@ app.post('/books', (req, res) => {
     })
 })
 
+app.delete('/books/:id', (req, res) => {
+    const bookID = req.params.id
+    const q = 'DELETE FROM books WHERE id = ?'
+
+    db.query(q, [bookID], (err, data) => {
+        if (err) return res.json(err)
+        return res.json('livro excluíd com sucesso!')
+    })
+})
+
 app.listen(8800, () => {
     console.log('conectado ao back-end!')
 })
