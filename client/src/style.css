@@ -20,6 +20,12 @@
     align-items: center;
 }
 
+h1,
+h2,
+p {
+    margin: 10px 0 10px 0;
+}
+
 img {
     width: 200px;
     height: 300px;
@@ -49,6 +55,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
 }
 
 input {
@@ -58,10 +65,26 @@ input {
 }
 
 .formButton {
+    width: 270px;
     border: none;
     padding: 10px;
     background-color: #9b5faa;
     color: white;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.addButton {
+    margin: 15px;
+    padding: 10px;
+    border: none;
+    background-color: #9b5faa;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+a {
+    all: unset;
     cursor: pointer;
 }

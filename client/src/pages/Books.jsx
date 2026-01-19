@@ -37,13 +37,13 @@ const Books = () => {
                     {book.cover && <img src={book.cover} alt=""/>}
                     <h2>{book.title}</h2>
                     <p>{book.description}</p>
-                    <span>{book.price}</span>
+                    <span>R${book.price}</span>
                     <button className="delete" onClick={()=> handleDelete(book.id)}>Excluir</button>
                     <button className="update"><Link to={`/update/${book.id}`}>Atualizar</Link></button>
                 </div>
                ))}
             </div>
-            <button>
+            <button className="addButton">
                 <Link to="/add">Adicione um novo livro</Link>
             </button>
         </div>
